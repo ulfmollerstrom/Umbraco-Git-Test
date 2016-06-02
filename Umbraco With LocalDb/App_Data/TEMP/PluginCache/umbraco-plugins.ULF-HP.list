@@ -277,11 +277,6 @@
     <add type="Umbraco.Core.Persistence.Mappers.UserMapper, Umbraco.Core, Version=1.0.5948.18141, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Core.Persistence.Mappers.UserTypeMapper, Umbraco.Core, Version=1.0.5948.18141, Culture=neutral, PublicKeyToken=null" />
   </baseType>
-  <baseType type="Umbraco.Web.Editors.IEditorValidator" resolutionType="FindAllTypes">
-    <add type="Umbraco.ModelsBuilder.Validation.ContentTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.2.93, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.ModelsBuilder.Validation.MediaTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.2.93, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.ModelsBuilder.Validation.MemberTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.2.93, Culture=neutral, PublicKeyToken=null" />
-  </baseType>
   <baseType type="umbraco.interfaces.ICacheRefresher" resolutionType="FindAllTypes">
     <add type="Umbraco.Web.Cache.ApplicationCacheRefresher, umbraco, Version=1.0.5948.18146, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Cache.ApplicationTreeCacheRefresher, umbraco, Version=1.0.5948.18146, Culture=neutral, PublicKeyToken=null" />
@@ -303,5 +298,10 @@
     <add type="Umbraco.Web.Cache.UserCacheRefresher, umbraco, Version=1.0.5948.18146, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Cache.UserPermissionsCacheRefresher, umbraco, Version=1.0.5948.18146, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Cache.UserTypeCacheRefresher, umbraco, Version=1.0.5948.18146, Culture=neutral, PublicKeyToken=null" />
+  </baseType>
+  <baseType type="Umbraco.Web.Editors.IEditorValidator" resolutionType="FindAllTypes">
+    <add type="Umbraco.ModelsBuilder.Validation.ContentTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.2.93, Culture=neutral, PublicKeyToken=null" />
+    <add type="Umbraco.ModelsBuilder.Validation.MediaTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.2.93, Culture=neutral, PublicKeyToken=null" />
+    <add type="Umbraco.ModelsBuilder.Validation.MemberTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.2.93, Culture=neutral, PublicKeyToken=null" />
   </baseType>
 </plugins>

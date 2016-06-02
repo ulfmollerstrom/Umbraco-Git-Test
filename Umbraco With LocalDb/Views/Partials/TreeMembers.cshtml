@@ -1,0 +1,26 @@
+﻿@using Umbraco_With_LocalDb.App_Code
+@{
+    var service = ApplicationContext.Current.Services.MemberService;
+    Func<IMember, bool> selectMember = m => m.GetEmploymentDate() <= DateTime.Today && m.ContentTypeAlias == "sciFiCaracters";
+    var membersToTree = service.GetAllMembers().Where(m => selectMember(m)).Take(16).ToArray();
+}
+
+@{
+    <b>Alltid sorterat</b>
+    <br />
+    var cnt = 0;
+    foreach (var member in membersToTree.OrderBy(m => m.Id))
+    {
+        @:@string.Concat("id: ", member.Id, " ", member.Name)<br/>
+    }
+
+    <br />
+    <b>Redit osorterat</b>
+    <br />
+    cnt = 0;
+    foreach (var member in membersToTree.RandomOrder())
+    {
+        @:@string.Concat("id: ", member.Id, " ", member.Name)<br />
+    }
+}
+
