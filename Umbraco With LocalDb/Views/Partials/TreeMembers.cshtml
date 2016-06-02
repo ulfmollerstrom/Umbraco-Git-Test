@@ -1,7 +1,10 @@
 ﻿@using Umbraco_With_LocalDb.App_Code
 @{
     var service = ApplicationContext.Current.Services.MemberService;
-    Func<IMember, bool> selectMember = m => m.GetEmploymentDate() <= DateTime.Today && m.ContentTypeAlias == "sciFiCaracters";
+
+    Func<IMember, bool> selectMember = m => m.GetEmploymentDate() <= DateTime.Today &&
+                                            m.ContentTypeAlias.Equals("SciFiCaracters", StringComparison.InvariantCultureIgnoreCase);
+
     var membersToTree = service.GetAllMembers().Where(m => selectMember(m)).Take(16).ToArray();
 }
 

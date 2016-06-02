@@ -17,7 +17,6 @@ namespace Umbraco_With_LocalDb.App_Code
             return employmentDate ?? noDate;
         }
 
-
         public static void SetEmploymentDate(this IMember member, DateTime employmentDate)
         {
             var property = GetEmploymentDateProperty(member);
@@ -25,10 +24,9 @@ namespace Umbraco_With_LocalDb.App_Code
             property.Value = employmentDate;
         }
 
-
         private static Property GetEmploymentDateProperty(IMember member)
         {
-            return member.Properties.FirstOrDefault(p => p.Alias == "employmentDate");
+            return member.Properties.FirstOrDefault(p => p.Alias.Equals("EmploymentDate", StringComparison.InvariantCultureIgnoreCase));
         }
 
     }
