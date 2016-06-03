@@ -380,6 +380,7 @@
     <Content Include="Views\sorted.cshtml" />
     <Content Include="Views\unsorted.cshtml" />
     <Content Include="Views\Members.cshtml" />
+    <Content Include="Views\single.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
