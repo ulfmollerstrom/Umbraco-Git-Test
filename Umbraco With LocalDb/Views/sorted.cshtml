@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco_With_LocalDb.App_Code
+@{
+    Layout = null;
+
+    var service = ApplicationContext.Current.Services.MemberService;
+
+    Func<IMember, bool> memberPredicate = m => m.GetEmploymentDate() <= DateTime.Today &&
+                                               m.ContentTypeAlias.Equals("SciFiCaracters", StringComparison.InvariantCultureIgnoreCase);
+
+    Func<IMember, dynamic> dynamicMember = m => new { m.Id, m.Username, m.Name };
+
+    var selectedMembers = service.GetAllMembers()
+                                 .Where(m => memberPredicate(m))
+                                 .Select(m => dynamicMember(m))
+                                 .Take(16)
+                                 .ToArray();
+
+    var json = Json.Encode(new { SciFiCaracters = selectedMembers.OrderBy(m => m.Id) });
+    Response.ContentType = "application/json";
+}
+@Html.Raw(json)
