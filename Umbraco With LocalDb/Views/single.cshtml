@@ -19,7 +19,8 @@
                                  .Select(m => dynamicMember(m))
                                  .Single();
 
-    var json = Json.Encode(new { SciFiCaracter = selectedMember });
+    //var json = Json.Encode(new { SciFiCaracter = selectedMember });
+    var json = Json.Encode(new { member = selectedMember }); //if "member" is omitted, "selectedMember" will be displayed in JSON 
     Response.ContentType = "application/json";
 
 }
